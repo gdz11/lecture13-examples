@@ -1,0 +1,13 @@
+<h1>Counter component getting data from store via selectors</h1>
+
+<div>Counter value: {{ counterValue$ | async }}</div>
+<div>Counter step: {{ counterStep$ | async }}</div>
+
+<input type="number" [formControl]="step" placeholder="step value" >
+<button (click)="onUpdateStep()">Update step</button>
+
+<br><br>
+<div>
+    <button (click)="onIncrement()">Increment counter</button> &nbsp;
+    <button (click)="onDecrement()">Decrement counter</button>
+</div>
