@@ -11,3 +11,12 @@
     <button (click)="onIncrement()">Increment counter</button> &nbsp;
     <button (click)="onDecrement()">Decrement counter</button>
 </div>
+
+
+
+<br><br>
+<input type="number" [formControl]="id" placeholder="counter id">
+<div *ngIf="{ counterValue: counterValue$ | async} as data">
+    <button (click)="onLoad()">Load counter</button> &nbsp;
+    <button (click)="onSave(data.counterValue!)">Save counter</button>
+</div>

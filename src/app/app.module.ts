@@ -7,6 +7,9 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './store/reducers';
 import { CounterComponent } from './counter/counter.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EffectsModule } from '@ngrx/effects';
+import { HttpClientModule } from '@angular/common/http';
+import { CounterEffects } from './store/effects/counter-effects';
 
 @NgModule({
   declarations: [
@@ -16,10 +19,14 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    HttpClientModule,
     AppRoutingModule,
     StoreModule.forRoot(reducers, {
       metaReducers
-    })
+    }),
+    EffectsModule.forRoot([
+      CounterEffects
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

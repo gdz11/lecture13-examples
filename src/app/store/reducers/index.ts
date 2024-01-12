@@ -9,7 +9,7 @@ import {
   on
 } from '@ngrx/store';
 import { AppState } from '../state';
-import { changeStep, decrement, increment } from '../actions/counter-actions';
+import { changeStep, decrement, increment, loadCounterSuccess } from '../actions/counter-actions';
 
 
 const initialState = {
@@ -29,6 +29,9 @@ export const counterReducer = createReducer(initialState,
   on(changeStep, (state, action) =>{
 
     return { ... state, increment: action.stepValue };
+  }),
+  on(loadCounterSuccess, (state, action) => {
+    return { ... state, value: action.data.value };
   })
 );
 
